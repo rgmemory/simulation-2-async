@@ -1,9 +1,5 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-# Live Example
-
-<a href="https://houser.devmountain.com/">houser.devmountain.com</a>
-
 # Project Summary
 
 This project is designed to replicate what you might receive on the job. There won't be any guided instruction on what you'll need to do. We will only provide you with design specifications and technical requirements. Your mentors have also been asked to provide only minimal guidance. They can point you in the right direction, but cannot help you code. This project is a chance for you to combine and showcase the skills you've learned so far.
@@ -16,7 +12,7 @@ Good luck and work hard!
 
 # Color Palette & Font
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/assets/colors.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/assets/colors.png" />
 
 <b><a href="https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans">Google Font - Open Sans</a></b>
 
@@ -26,25 +22,25 @@ The dashboard view uses a linear gradient as its background: `linear-gradient(to
 
 ## Auth View
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/auth.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/auth.png" />
 
 ## Dashboard View
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/dashboard.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/dashboard.png" />
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/filter.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/filter.png" />
 
 ## Wizard View - Steps 1-5
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/wizard1.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/wizard1.png" />
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/wizard2.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/wizard2.png" />
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/wizard3.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/wizard3.png" />
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/wizard4.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/wizard4.png" />
 
-<img src="https://github.com/DevMountain/simulation-2/blob/master/views/wizard5.png" />
+<img src="https://github.com/DevMountain/simulation-2-async/blob/master/views/wizard5.png" />
 
 # Technical Requirements - Front-end
 
