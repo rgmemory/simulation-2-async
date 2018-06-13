@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { format } from 'path';
 
 
 export default class Dashboard extends Component{
@@ -19,33 +20,47 @@ export default class Dashboard extends Component{
             this.setState({
                 properties: res.data
             })
+        }).catch(e => {
+            console.log(e)
         })
     }
-
-
 
     render(){
 
         var formattedProperties = this.state.properties.map((current, index) => {
+            console.log(current);
             return(
                 <div key = {current + index}>
-                    {current.name}
+                    ID: {current.user_id}
+                    NAME: {current.name}
+                    ADDRESS: {current.address}
                 </div>
             )
         })
+
+        console.log('formattedProperties', formattedProperties)
 
         return(
 
 
             <div>
-                Dashboard
+                <Link to="/name"> <button>Add new property</button> </Link>
+                
+                Home Listings
 
-                {/* <Link to="/"> <button>Add new property</button> </Link> */}
+                {/* {
+                    (formattedProperties) ? 
+
+                    <div> you've got properties </div>
+                    
+                    :
+                    
+                    <div> No properties, yet. </div>
+                } */}
 
                 {formattedProperties}
 
-
-                <Link to="/name"><button>Enter a new property</button></Link>
+                {/* <Link to="/name"><button>Enter a new property</button></Link> */}
             </div>
         )
     }

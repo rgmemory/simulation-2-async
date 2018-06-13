@@ -30,6 +30,8 @@ massive(process.env.CONNECTION_STRING).then(db => {
 //     next()
 // })
 
+app.use
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,

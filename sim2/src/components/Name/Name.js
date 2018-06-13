@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom';
 
 
 export default class Name extends Component{
@@ -12,6 +13,8 @@ export default class Name extends Component{
         return(
             <div>
                 Name
+
+                <Link to="/address"><button>Next Step</button></Link>
             </div>
         )
     }

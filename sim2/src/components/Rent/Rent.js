@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 
 export default class Rent extends Component{
@@ -12,6 +13,9 @@ export default class Rent extends Component{
         return(
             <div>
                 Rent
+
+                <Link to="/loan"><button>Previous Step</button></Link>
+                <Link to="/dashboard"><button>Complete</button></Link>
             </div>
         )
     }
