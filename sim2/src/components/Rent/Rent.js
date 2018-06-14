@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {handleRent} from '../../Ducks/reducer'
+import Header from '../Header/Header'
+import './rent.css'
 
 
 class Rent extends Component{
@@ -10,8 +12,11 @@ constructor(){
     }
 
     render(){
+
+        console.log(this.props.name)
         return(
             <div>
+                <Header />
                 Desired Rent
                 <input type="text" onChange={this.props.handleRent}/>
 

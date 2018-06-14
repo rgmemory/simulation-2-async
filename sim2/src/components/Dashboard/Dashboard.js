@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { format } from 'path';
+import Header from '../Header/Header'
+import './dashboard.css'
 
 
 export default class Dashboard extends Component{
@@ -42,8 +43,11 @@ export default class Dashboard extends Component{
 
         return(
 
-
-            <div>
+            
+            
+            <div className="dashboard">
+                <Header />
+                <div className="middle">
                 <Link to="/name"> <button>Add new property</button> </Link>
                 
                 Home Listings
@@ -61,6 +65,7 @@ export default class Dashboard extends Component{
                 {formattedProperties}
 
                 {/* <Link to="/name"><button>Enter a new property</button></Link> */}
+                </div>
             </div>
         )
     }

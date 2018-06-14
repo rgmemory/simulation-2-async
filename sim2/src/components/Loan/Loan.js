@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {handleLoan, handleMortgage} from '../../Ducks/reducer'
 import {connect} from 'react-redux';
-
+import Header from '../Header/Header'
+import './loan.css'
 
 class Loan extends Component{
     constructor(){
@@ -14,6 +15,7 @@ class Loan extends Component{
     render(){
         return(
             <div>
+                <Header />
                 Loan Amount
                 <input type="text" onChange={this.props.handleLoan}/>
                 Monthly Mortgage

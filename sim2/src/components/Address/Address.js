@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {handleAddress, handleCity, handleState, handleZip} from '../../Ducks/reducer'
+import Header from '../Header/Header'
+import './address.css'
 
 
 class Address extends Component{
@@ -12,6 +14,7 @@ class Address extends Component{
     render(){
         return(
             <div>
+                <Header />
                 Address
                 <input type="text" onChange={this.props.handleAddress}/>
                 City

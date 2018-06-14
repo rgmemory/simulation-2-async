@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {handleName, handleDescription} from '../../Ducks/reducer'
-
+import Header from '../Header/Header'
+import './name.css'
 
 export class Name extends Component{
     constructor(){
@@ -13,6 +14,7 @@ export class Name extends Component{
 
         return(
             <div>
+                <Header />
                 Property Name
                 <input type="text" onChange={e => this.props.handleName(e.target.value)}/>
 

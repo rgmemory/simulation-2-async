@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
-import { EPROTONOSUPPORT } from 'constants';
-// import { STATUS_CODES } from 'http';
-// import { STATUS_CODES } from 'http';
 import axios from 'axios';
+import './auth.css'
 
 
 export default class Auth extends Component{
@@ -51,16 +49,18 @@ export default class Auth extends Component{
 
     render(){
         return(
-            <div>
-                Auth
-                
-                Username
-                <input type="text" onChange={e => {this.updateUsername(e.target.value)}}/>
-                Password
-                <input type="text" onChange={e => {this.updatePassword(e.target.value)}}/>
+            <div className="auth">
+                <div className="middle">
+                    Auth
+                    
+                    Username
+                    <input type="text" onChange={e => {this.updateUsername(e.target.value)}}/>
+                    Password
+                    <input type="text" onChange={e => {this.updatePassword(e.target.value)}}/>
 
-               <button onClick={this.submitLogin}>Login</button>
-               <button>Register</button>
+                    <button onClick={this.submitLogin}>Login</button>
+                    <button>Register</button>
+                </div>
             </div>
         )
     }
