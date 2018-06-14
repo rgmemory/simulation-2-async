@@ -12,9 +12,9 @@ export default class Header extends Component{
     render(){
         return(
             <div className="header">
-                Houser
+                
 
-                <Link to="/dashboard"><button>Home</button></Link>
+                <Link to="/dashboard"><button>Houser</button></Link>
                 <Link to="/"><button>Login</button></Link>
 
             </div>

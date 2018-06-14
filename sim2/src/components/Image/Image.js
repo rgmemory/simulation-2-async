@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
+import {handleImage} from '../../Ducks/reducer'
+import {connect} from 'react-redux';
 
 
-export default class Image extends Component{
+class Image extends Component{
     constructor(){
         super()
     }
@@ -13,6 +15,7 @@ export default class Image extends Component{
         return(
             <div>
                 Image
+                <input type="text" onChange={this.props.handleImage}/>
                 <Link to="/address"><button>Previous Step</button></Link>
                 <Link to="/loan"><button>Next Step</button></Link>
             </div>
@@ -21,3 +24,9 @@ export default class Image extends Component{
 
 
 }
+
+const mapDispatchToProps = {
+    handleImage
+}
+
+export default connect(null, mapDispatchToProps)(Image)

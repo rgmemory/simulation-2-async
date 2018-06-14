@@ -7,6 +7,7 @@ require('dotenv').config();
 //properties
 //houseruser
 
+
 //many references the one. properties references the user_id
 
 
@@ -23,30 +24,58 @@ massive(process.env.CONNECTION_STRING).then(db => {
 })
 
 // app.use((req, res, next){
-//     req.session.user = {
-//         name: 'tommy',
-//         age: 24
-//     };
-//     next()
-// })
+    //     req.session.user = {
+        //         name: 'tommy',
+        //         age: 24
+        //     };
+        //     next()
+        // })
+        
+        app.use
+        
+        app.use(session({
+            secret: process.env.SESSION_SECRET,
+            resave: false,
+            saveUninitialized: true
+            // cookie: {
+                //     maxAge: 1000 * 60
+                // }
+            }))
+            
+            app.post('/api/auth/login', controller.login)
+            app.get('/api/getproperties', controller.getProperties)
+            
+            
+            // app.get('/getProperties', controller.getProperties)
+            
+            app.listen(3005, () => {
+                console.log("working on 3005");
+            })
 
-app.use
-
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true
-    // cookie: {
-    //     maxAge: 1000 * 60
-    // }
-}))
-
-app.post('/api/auth/login', controller.login)
-app.get('/api/getproperties', controller.getProperties)
 
 
-// app.get('/getProperties', controller.getProperties)
 
-app.listen(3005, () => {
-    console.log("working on 3005");
-})
+
+            
+
+            //drop table if exists authors;
+            //create table if not exists authors (
+             //   id serial primary key,
+             //   name text
+            //) 
+
+
+            //join table
+            // create table if not exists authored_books (
+            //     id serial primary key,
+            //     author_id int references authors(id),
+            //     book_id int references books(id)
+            // )
+
+            // insert into authored_books(author_id, book_id)
+            // values
+            // (5, 5)
+            // (4, 5)
+            // (3, 3)
+            // (2, 5)
+            // (1, 2)
