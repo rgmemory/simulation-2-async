@@ -1,12 +1,73 @@
-.auth{
-    background-color: #B0D4C0;
-    height: 100vh;
-    width: 100%;
+
+
+.auth_inner_middle{
+    width: 550px;
+    height: 100%;
+    /* border: solid black 1px; */
+    margin: auto;
+    /* background-color: green; */
 }
 
-.middle{
-    background-color: #FFFFFF;
-    height: 100vh;
-    width: 700px;
+.center{
+    background-color: white;
+}
+
+.auth_logo{
+    /* border: solid 1px black; */
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.auth_inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    /* border: solid 1px black; */
+}
+
+.auth_inputs div{
+    margin-top: 10px;
+}
+
+.auth_buttons{
+    /* border: solid 1px black; */
+    height: 5%;
+    width: 70%;
     margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.auth_inputs input{
+    width: 400px;
+    height: 28px;
+    margin-top: 10px;
+    /* border: solid 1px #B1D4C1; */
+    font-size: 18px;
+}
+
+.logo{
+    position: absolute;
+    top: 80%;
+}
+
+.auth_buttons .login_button{
+    background-color: #8DE995;
+    color: black;
+    height: 25px;
+    width: 70px;
+    border-radius: 3px;
+}
+
+.auth_buttons .register_button{
+    background-color: #3C5249;
+    color: white;
+    height: 25px;
+    width: 70px;
+    border-radius: 3px;
 }

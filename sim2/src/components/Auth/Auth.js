@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './auth.css'
 
-
 export default class Auth extends Component{
     constructor(){
         super()
@@ -19,16 +18,12 @@ export default class Auth extends Component{
     }
 
     updateUsername(value){
-        console.log(value);
-
         this.setState({
             username: value
         })
     }
 
     updatePassword(value){
-        console.log(value);
-
         this.setState({
             password: value
         })
@@ -36,10 +31,7 @@ export default class Auth extends Component{
 
     submitLogin(){
         axios.post('/api/auth/login', {username: this.state.username, password: this.state.password}).then(res => {
-            console.log('front end', res)
-
             if(res.status == 200){
-                console.log('it worked')
                 this.props.history.push(`/dashboard`)
             }
         }).catch(e => {
@@ -49,19 +41,31 @@ export default class Auth extends Component{
 
     render(){
         return(
-            <div className="auth">
-                <div className="middle">
-                    Auth
-                    
-                    Username
-                    <input type="text" onChange={e => {this.updateUsername(e.target.value)}}/>
-                    Password
-                    <input type="text" onChange={e => {this.updatePassword(e.target.value)}}/>
+                    <div className="auth_inner_middle">
 
-                    <button onClick={this.submitLogin}>Login</button>
-                    <button>Register</button>
-                </div>
-            </div>
+                        <div className="auth_logo">
+                            <div className="logo">
+                            LOGO
+                            </div>
+                        </div>
+                        
+                        <div className="auth_inputs">
+                            <div className="auth_username">
+                                <div><b>Username</b></div>
+                                <input type="text" onChange={e => {this.updateUsername(e.target.value)}}/>
+                            </div>
+                            <div className="auth_username">
+                                <div><b>Password</b></div>
+                                <input type="text" onChange={e => {this.updatePassword(e.target.value)}}/>
+                            </div>                            
+                        </div>
+
+                        <div className="auth_buttons">
+                            <button className="login_button" onClick={this.submitLogin}>Login</button>
+                            <button className="register_button">Register</button>
+                        </div>
+
+                    </div>
         )
     }
 

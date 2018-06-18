@@ -1,9 +1,23 @@
-.dashboard{
-    background-color: #B0D4C0;
-    height: 100vh;
-    width: 100%;
+
+
+.new_property{
+    display: flex;
+    justify-content: center;
 }
 
-.dashboard .middle{
-    background-color: #E4F3EC;
+.dashboard_add_new{
+    background-color: #8CE693;
+    height: 20px;
+    width: 140px;
+}
+
+
+.dashboard_filter{
+    border-bottom: solid 1px black;
+}
+
+.dashboard_properties{
+    border: solid 1px black;
+    background-color: #DEDEDE;
+    margin: 15px;
 }

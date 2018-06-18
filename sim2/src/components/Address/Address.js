@@ -1,51 +1,81 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {handleAddress, handleCity, handleState, handleZip} from '../../Ducks/reducer'
-import Header from '../Header/Header'
-import './address.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import {
+  handleAddress,
+  handleCity,
+  handleState,
+  handleZip
+} from "../../Ducks/reducer";
+import "./address.css";
 
+class Address extends Component {
+  constructor() {
+    super();
+  }
 
-class Address extends Component{
-    constructor(){
-        super()
-    }
+  render() {
 
-    render(){
-        return(
-            <div>
-                <Header />
-                Address
-                <input type="text" onChange={this.props.handleAddress}/>
-                City
-                <input type="text" onChange={this.props.handleCity}/>
-                State
-                <input type="text" onChange={this.props.handleState}/>
-                Zip
-                <input type="text" onChange={this.props.handleZip}/>
+    console.log(this.props.name, this.props.description)
+    return (
+      <div className="address">
+        <div className="top">
+          <p>Add new listing</p>
 
-                <Link to="/name"><button>Previous Step</button></Link>
-                <Link to="/image"><button>Next Step</button></Link>
+          <Link to="/dashboard">
+            <button className="cancel">Cancel</button>
+          </Link>
+        </div>
 
-                {/* {this.props.description} */}
+        <div className="center">
+          <div className="step">
+            <p>Step 2</p>
+          </div>
 
-            </div>
-        )
-    }
+          <div className="progress">
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+          </div>
+
+          <div className="inputs">
+            Address
+            <input type="text" onChange={e => {this.props.handleAddress(e.target.value)}} />
+            City
+            <input type="text" onChange={e => {this.props.handleCity(e.target.value)}} />
+
+            State
+            <input type="text" onChange={e => {this.props.handleState(e.target.value)}} />
+
+            Zip
+            <input type="text" onChange={e => {this.props.handleZip(e.target.value)}} />
+
+          </div>
+
+          <div className="bottom_buttons">
+            <Link to="/name">
+              <button className="previous_step">Previous Step</button>
+            </Link>
+            <Link to="/image">
+              <button className="next_step">Next Step</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
-// function mapStateToProps(state){
-//     return{
-//         name: state.name,
-//         description: state.description
-//     }
-// }
 
 const mapDispatchToProps = {
-    handleAddress, 
-    handleCity, 
-    handleState, 
-    handleZip
-}
+  handleAddress,
+  handleCity,
+  handleState,
+  handleZip
+};
 
-export default connect(null, mapDispatchToProps)(Address)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Address);

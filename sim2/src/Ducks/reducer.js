@@ -3,7 +3,7 @@
 const initial_state = {
     name: '',
     description: '',
-    addresss: '',
+    address: '',
     city: '',
     state: '',
     zip: null,
@@ -72,6 +72,7 @@ export function handleDescription(value){
     }
 }
 export function handleAddress(value){
+    console.log(value)
     return{
         type: ADDRESS,
         payload: value

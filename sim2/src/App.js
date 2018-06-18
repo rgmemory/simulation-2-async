@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
-// import './App.css';
-// import Header from './components/Header/Header';
 import routes from './routes';
+import Header from '../src/components/Header/Header'
+import {withRouter} from 'react-router';
+import './App.css'
 
 class App extends Component {
   render() {
+
     return (
-      <div className="App">
-        {/* <Header /> */}
-
-        {/* <div className="header"> */}
-          {/* <div className="middle"> */}
-            {routes}
-          {/* </div> */}
-        {/* </div> */}
-
-        
-
+      <div>
+          {
+            this.props.location.pathname == '/' ?
+            null
+            :
+            <Header />
+          }          
+            
+          <div className="background">
+            <div className="center">
+              {routes}
+            </div>
+          </div>
 
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App)
 
 
 
+{/* <div className={`${this.props.location.pathname === '/' ? 'auth' : 'middle'}`}> */}
 
 
 /////use sessions to login and know which user is doing what then place an axios call to make the update

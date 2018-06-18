@@ -44,6 +44,10 @@ massive(process.env.CONNECTION_STRING).then(db => {
             
             app.post('/api/auth/login', controller.login)
             app.get('/api/getproperties', controller.getProperties)
+
+            app.post('/api/properties', controller.postProperty)
+
+            app.delete('/api/delete/:id', controller.delete)
             
             
             // app.get('/getProperties', controller.getProperties)

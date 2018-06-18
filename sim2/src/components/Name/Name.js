@@ -1,44 +1,70 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {handleName, handleDescription} from '../../Ducks/reducer'
-import Header from '../Header/Header'
-import './name.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleName, handleDescription } from "../../Ducks/reducer";
+import Header from "../Header/Header";
+// import './name.css'
 
-export class Name extends Component{
-    constructor(){
-        super()
-    }
+export class Name extends Component {
+  constructor() {
+    super();
+  }
 
-    render(){
+  render() {
+    return (
+      <div className="name">
+        <div className="top">
+          <p>Add new listing</p>
 
-        return(
-            <div>
-                <Header />
-                Property Name
-                <input type="text" onChange={e => this.props.handleName(e.target.value)}/>
+          <Link to="/dashboard">
+            <button className="cancel">Cancel</button>
+          </Link>
+        </div>
 
-                Property Description
-                <input type="text" onChange={e => this.props.handleDescription(e.target.value)}/>
+        <div className="center">
+          <div className="step">
+            <p>Step 1</p>
+          </div>
 
-                <Link to="/address"><button>Next Step</button></Link>
-            </div>
-        )
-    }
+          <div className="progress">
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+          </div>
 
+          <div className="inputs">
+            Property Name
+            <input
+              type="text"
+              onChange={e => this.props.handleName(e.target.value)}
+            />
+            Property Description
+            <input
+              type="text"
+              onChange={e => this.props.handleDescription(e.target.value)}
+            />
+          </div>
 
+          <div className="bottom_buttons">
+            <Link to="/address">
+              <button className="next_step">Next Step</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-// function mapStateToProps(state){
-//     return{
-//         username: state.username,
-//         address: state.address
-//     }
-// }
 
 const mapDispatchToProps = {
-    handleName,
-    handleDescription
-}
+  handleName,
+  handleDescription
+};
 
-export default connect(null, mapDispatchToProps)(Name)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Name);

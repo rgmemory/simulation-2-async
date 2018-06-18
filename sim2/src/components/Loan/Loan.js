@@ -1,39 +1,65 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {handleLoan, handleMortgage} from '../../Ducks/reducer'
-import {connect} from 'react-redux';
-import Header from '../Header/Header'
-import './loan.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { handleLoan, handleMortgage } from "../../Ducks/reducer";
+import { connect } from "react-redux";
+import "./loan.css";
 
-class Loan extends Component{
-    constructor(){
-        super()
-    }
+class Loan extends Component {
+  constructor() {
+    super();
+  }
 
+  render() {
+    return (
+      <div className="loan">
+        <div className="top">
+          <p>Add new listing</p>
 
+          <Link to="/dashboard">
+            <button className="cancel">Cancel</button>
+          </Link>
+        </div>
 
-    render(){
-        return(
-            <div>
-                <Header />
-                Loan Amount
-                <input type="text" onChange={this.props.handleLoan}/>
-                Monthly Mortgage
-                <input type="text" onChange={this.props.handleMortgage}/>
+        <div className="center">
+          <div className="step">
+            <p>Step 4</p>
+          </div>
 
+          <div className="progress">
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+          </div>
 
-                <Link to="/image"><button>Previous Step</button></Link>
-                <Link to="/rent"><button>Next Step</button></Link>
-            </div>
-        )
-    }
+          <div className="inputs">
+            Loan Amount
+            <input type="text" onChange={e => this.props.handleLoan(e.target.value)} />
+            Monthly Mortgage
+            <input type="text" onChange={e => this.props.handleMortgage(e.target.value)} />
+          </div>
 
-
+          <div className="bottom_buttons">
+            <Link to="/image">
+              <button className="previous_step">Previous Step</button>
+            </Link>
+            <Link to="/rent">
+              <button className="next_step">Next Step</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = {
-    handleLoan,
-    handleMortgage
-}
+  handleLoan,
+  handleMortgage
+};
 
-export default connect (null, mapDispatchToProps)(Loan)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Loan);

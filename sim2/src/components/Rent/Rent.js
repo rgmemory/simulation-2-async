@@ -1,35 +1,95 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux';
-import {handleRent} from '../../Ducks/reducer'
-import Header from '../Header/Header'
-import './rent.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleRent } from "../../Ducks/reducer";
+import axios from 'axios';
+import "./rent.css";
 
+class Rent extends Component {
+  constructor() {
+    super();
+    this.complete = this.complete.bind(this);
+  }
 
-class Rent extends Component{
-constructor(){
-    super()
-    }
+  complete(){
+    console.log('complete')
+    let {name, description, address, city, state, zip, image, loan, mortgage, rent} = this.props
+    axios.post('/api/properties', {name, description, address, city, state, zip, image, loan, mortgage, rent}).then(res => {
+      console.log('complete works')
+      this.props.history.push('/dashboard')
+    })
+  }
 
-    render(){
+  render() {
 
-        console.log(this.props.name)
-        return(
-            <div>
-                <Header />
-                Desired Rent
-                <input type="text" onChange={this.props.handleRent}/>
+    let {name, description, address, city, state, zip, image, loan, mortgage, rent} = this.props
+    console.log(name, description, address, city, state, zip, image, loan, mortgage, rent)
+    return (
+      <div className="rent">
+        <div className="top">
+          <p>Add new listing</p>
 
-                <Link to="/loan"><button>Previous Step</button></Link>
-                <Link to="/dashboard"><button>Complete</button></Link>
-            </div>
-        )
-    }
+          <Link to="/dashboard">
+            <button className="cancel">Cancel</button>
+          </Link>
+        </div>
+
+        <div className="center">
+          <div className="step">
+            <p>Step 5</p>
+          </div>
+
+          <div className="progress">
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+          </div>
+
+          <div className="inputs">
+            Desired Rent
+            <input type="text" onChange={e => {this.props.handleRent(e.target.value)}} />
+          </div>
+
+          <div className="bottom_buttons">
+            <Link to="/loan">
+              <button className="previous_step">Previous Step</button>
+            </Link>
+
+            {/* <Link to="/dashboard"> */}
+              <button onClick={this.complete}>Complete</button>
+            {/* </Link> */}
+
+            
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = {
-    handleRent
+  handleRent
+};
+
+function mapStateToProps(statel){
+  let {name, description, address, city, state, zip, image, loan, mortgage, rent} = statel
+  return{
+    name,
+     description,
+      address,
+       city,
+        state,
+         zip,
+          image,
+           loan,
+            mortgage,
+             rent
+  }
 }
 
-export default connect(null, mapDispatchToProps)(Rent)
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Rent);

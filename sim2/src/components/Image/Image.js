@@ -1,35 +1,62 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom';
-import {handleImage} from '../../Ducks/reducer'
-import {connect} from 'react-redux';
-import Header from '../Header/Header'
-import './image.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { handleImage } from "../../Ducks/reducer";
+import { connect } from "react-redux";
+import "./image.css";
 
+class Image extends Component {
+  constructor() {
+    super();
+  }
 
-class Image extends Component{
-    constructor(){
-        super()
-    }
+  render() {
+    return (
+      <div className="image">
+        <div className="top">
+          <p>Add new listing</p>
 
+          <Link to="/dashboard">
+            <button className="cancel">Cancel</button>
+          </Link>
+        </div>
 
+        <div className="center">
+          <div className="step">
+            <p>Step 3</p>
+          </div>
 
-    render(){
-        return(
-            <div>
-                <Header />
-                Image
-                <input type="text" onChange={this.props.handleImage}/>
-                <Link to="/address"><button>Previous Step</button></Link>
-                <Link to="/loan"><button>Next Step</button></Link>
-            </div>
-        )
-    }
+          <div className="progress">
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+            <div>*</div>
+          </div>
 
+          <div className="inputs">
+            Image
+            <input type="text" onChange={e => {this.props.handleImage(e.target.value)}} />
+          </div>
 
+          <div className="bottom_buttons">
+            <Link to="/address">
+              <button className="previous_step">Previous Step</button>
+            </Link>
+            <Link to="/loan">
+              <button className="next_step">Next Step</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = {
-    handleImage
-}
+  handleImage
+};
 
-export default connect(null, mapDispatchToProps)(Image)
+export default connect(
+  null,
+  mapDispatchToProps
+)(Image);
