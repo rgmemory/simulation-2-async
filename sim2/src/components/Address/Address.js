@@ -16,7 +16,7 @@ class Address extends Component {
 
   render() {
 
-    console.log(this.props.name, this.props.description)
+    // console.log(this.props.name, this.props.description)
     return (
       <div className="address">
         <div className="top">
@@ -28,6 +28,9 @@ class Address extends Component {
         </div>
 
         <div className="center">
+
+
+          <div className="inner_center">
           <div className="step">
             <p>Step 2</p>
           </div>
@@ -41,16 +44,28 @@ class Address extends Component {
           </div>
 
           <div className="inputs">
-            Address
-            <input type="text" onChange={e => {this.props.handleAddress(e.target.value)}} />
-            City
-            <input type="text" onChange={e => {this.props.handleCity(e.target.value)}} />
 
-            State
-            <input type="text" onChange={e => {this.props.handleState(e.target.value)}} />
+            <div className="address_input">
+              <p>Address</p>
+              <input className="input_font" type="text" onChange={e => {this.props.handleAddress(e.target.value)}} />
+            </div>
 
-            Zip
-            <input type="text" onChange={e => {this.props.handleZip(e.target.value)}} />
+            <div className="second_row">
+              <div className="city_input">
+                <p>City</p>
+                <input className="input_font" type="text" onChange={e => {this.props.handleCity(e.target.value)}} />
+              </div>
+
+              <div className="state_input">
+                <p>State</p>
+                <input className="input_font" type="text_input" onChange={e => {this.props.handleState(e.target.value)}} />
+              </div>
+            </div>
+
+            <div className="zip_input">
+              <p>Zip</p>
+              <input className="input_font" type="text_input" onChange={e => {this.props.handleZip(e.target.value)}} />
+            </div>
 
           </div>
 
@@ -63,6 +78,9 @@ class Address extends Component {
             </Link>
           </div>
         </div>
+          </div>
+
+
       </div>
     );
   }

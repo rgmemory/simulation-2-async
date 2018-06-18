@@ -1,23 +1,26 @@
 
-
 .auth_inner_middle{
     width: 550px;
     height: 100%;
-    /* border: solid black 1px; */
     margin: auto;
-    /* background-color: green; */
 }
 
-.center{
+.auth .center{
     background-color: white;
 }
 
 .auth_logo{
-    /* border: solid 1px black; */
     height: 40%;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.auth_logo img{
+    position: absolute;
+    margin-top: 130px;
+    height:50%;
+    width:auto;
 }
 
 .auth_inputs{
@@ -26,7 +29,6 @@
     justify-content: center;
     align-items: center;
     height: 25%;
-    /* border: solid 1px black; */
 }
 
 .auth_inputs div{
@@ -34,7 +36,6 @@
 }
 
 .auth_buttons{
-    /* border: solid 1px black; */
     height: 5%;
     width: 70%;
     margin: auto;
@@ -47,7 +48,6 @@
     width: 400px;
     height: 28px;
     margin-top: 10px;
-    /* border: solid 1px #B1D4C1; */
     font-size: 18px;
 }
 
@@ -59,15 +59,17 @@
 .auth_buttons .login_button{
     background-color: #8DE995;
     color: black;
-    height: 25px;
-    width: 70px;
+    height: 45px;
+    width: 110px;
     border-radius: 3px;
+    font-size: 17px;
 }
 
 .auth_buttons .register_button{
     background-color: #3C5249;
     color: white;
-    height: 25px;
-    width: 70px;
+    height: 45px;
+    width: 110px;
     border-radius: 3px;
+    font-size: 17px;
 }

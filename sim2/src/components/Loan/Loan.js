@@ -21,32 +21,36 @@ class Loan extends Component {
         </div>
 
         <div className="center">
-          <div className="step">
-            <p>Step 4</p>
-          </div>
+            <div className="inner_center">
+            <div className="step">
+              <p>Step 4</p>
+            </div>
 
-          <div className="progress">
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-          </div>
+            <div className="progress">
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+            </div>
 
-          <div className="inputs">
-            Loan Amount
-            <input type="text" onChange={e => this.props.handleLoan(e.target.value)} />
-            Monthly Mortgage
-            <input type="text" onChange={e => this.props.handleMortgage(e.target.value)} />
-          </div>
 
-          <div className="bottom_buttons">
-            <Link to="/image">
-              <button className="previous_step">Previous Step</button>
-            </Link>
-            <Link to="/rent">
-              <button className="next_step">Next Step</button>
-            </Link>
+
+            <div className="inputs">
+              <p>Loan Amount</p>
+              <input className="loan_input input_font" type="text" onChange={e => this.props.handleLoan(e.target.value)} />
+              <p>Monthly Mortgage</p>
+              <input className="mortgage_input input_font" type="text" onChange={e => this.props.handleMortgage(e.target.value)} />
+            </div>
+
+            <div className="bottom_buttons">
+              <Link to="/image">
+                <button className="previous_step">Previous Step</button>
+              </Link>
+              <Link to="/rent">
+                <button className="next_step">Next Step</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

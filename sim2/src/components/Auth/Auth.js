@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './auth.css'
+import logo from './logo.png';
+
 
 export default class Auth extends Component{
     constructor(){
@@ -44,9 +46,10 @@ export default class Auth extends Component{
                     <div className="auth_inner_middle">
 
                         <div className="auth_logo">
-                            <div className="logo">
+                        <img src={logo}/>
+                            {/* <div className="logo">
                             LOGO
-                            </div>
+                            </div> */}
                         </div>
                         
                         <div className="auth_inputs">

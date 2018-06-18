@@ -35,35 +35,43 @@ class Rent extends Component {
         </div>
 
         <div className="center">
-          <div className="step">
-            <p>Step 5</p>
+          <div className="inner_center">
+            <div className="step">
+              <p>Step 5</p>
+            </div>
+
+            <div className="progress">
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+            </div>
+
+            <div className="recommended_rent">
+              <p>Recommended Rent: $</p>
+            </div>
+
+            <div className="inputs">
+              <p>Desired Rent</p>
+              <div className="rent_input">
+                <input className="input_font" type="text" onChange={e => {this.props.handleRent(e.target.value)}} />
+              </div>
+            </div>
+
+            <div className="bottom_buttons">
+              <Link to="/loan">
+                <button className="previous_step">Previous Step</button>
+              </Link>
+
+              <div className="complete">
+                <button onClick={this.complete}>Complete</button>
+              </div>
+
+              
+            </div>
           </div>
-
-          <div className="progress">
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
           </div>
-
-          <div className="inputs">
-            Desired Rent
-            <input type="text" onChange={e => {this.props.handleRent(e.target.value)}} />
-          </div>
-
-          <div className="bottom_buttons">
-            <Link to="/loan">
-              <button className="previous_step">Previous Step</button>
-            </Link>
-
-            {/* <Link to="/dashboard"> */}
-              <button onClick={this.complete}>Complete</button>
-            {/* </Link> */}
-
-            
-          </div>
-        </div>
       </div>
     );
   }

@@ -41,12 +41,14 @@ export default class Dashboard extends Component {
         <div className="dashboard_properties" key={current + index}>
 
             <div className="dashboard_properties_left">
-              IMG: {current.image}
+              {current.image}
             </div>
 
             <div className="dashboard_properties_center">
-              NAME: {current.name}
-              <div className=""></div>
+              Name {current.name}
+              <div className="dashboard_description">
+                {current.description}
+              </div>
 
             </div>
 
@@ -54,20 +56,22 @@ export default class Dashboard extends Component {
 
                   <div className="dashboard_loan">
                     Loan: {current.loan}
+                    <button onClick={() => {this.delete(current.property_id)}}>X</button>
                   </div>
 
                   <div className="dashboard_mortgage">
                     Monthly Mortgage: {current.mortgage}
+                  </div>
+                  
+                  <div className="dashboard_recommended_rent">
+
+                    Recommended Rent: 
                   </div>
 
                   <div className="dashboard_desired_rent">
                     Desired Rent:
                   </div>
 
-                  <div className="dashboard_recommended_rent">
-
-                    Recommended Rent: 
-                  </div>
 
                   <div className="dashboard_address">
                     Address: {current.address}
@@ -77,12 +81,11 @@ export default class Dashboard extends Component {
                     City: {current.city}
                   </div>
 
-                  <button onClick={() => {this.delete(current.property_id)}}>XXX</button>
+                  
                 
+                  ID: {current.user_id}
+                  PROPID: {current.property_id}
             </div>
-          ID: {current.user_id}
-          PROPID: {current.property_id}
-          ADDRESS: {current.address}
 
         </div>
       );
@@ -100,12 +103,12 @@ export default class Dashboard extends Component {
         <div className="dashboard_filter">
           <p>List properties with 'desired rent' greater than: $</p>
           <input className="dashboard_input" />
-          <button className="dashboard_filter">Filter</button>
-          <button className="dashboard_reset">Reset</button>
+          <button className="filter_button">Filter</button>
+          <button className="reset_button">Reset</button>
         </div>
 
         <div className="listings">
-          <p>Home Listings</p>
+          <div><b>Home Listings</b></div>
 
           <div> {formattedProperties}</div>
         </div>

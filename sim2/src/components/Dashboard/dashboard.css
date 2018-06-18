@@ -1,23 +1,101 @@
 
-
 .new_property{
     display: flex;
     justify-content: center;
 }
 
 .dashboard_add_new{
+    margin-top: 13px;
     background-color: #8CE693;
-    height: 20px;
+    height: 40px;
     width: 140px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.dashboard_filter{
+    margin: auto;
+    width: 90%;
+    border-bottom: solid 1px black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard_filter .dashboard_input{
+    height: 25px;
+    width: 70px;
+}
+
+.filter_button{
+    height: 25px;
+    width: 70px;
+    background-color: #8DE995;
+    color: black;
+    border-radius: 5px;
+}
+
+.reset_button{
+    height: 25px;
+    width: 70px;
+    background-color: #3C5249;
+    color: white;
+    border-radius: 5px;
+
 }
 
 
-.dashboard_filter{
-    border-bottom: solid 1px black;
+.listings{
+    margin-top: 20px;
+}
+
+.listings b{
+    margin-left: 25px;
 }
 
 .dashboard_properties{
     border: solid 1px black;
     background-color: #DEDEDE;
     margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 155px;
+    padding: 7px;
+    font-size: 15px;
+}
+
+.dashboard_properties_left{
+    /* border: solid 1px black; */
+    width: 22%;
+    font-size: 15px;
+    background-color: #CCCCCC;
+}
+
+.dashboard_properties_center{
+    /* border: solid 1px black; */
+    width: 37%;
+    font-size: 15px;
+}
+
+.dashboard_properties_right{
+    border-left: solid 1px black;
+    width: 37%;
+    font-size: 13px;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.dashboard_loan{
+    display: flex;
+    justify-content: space-between
+}
+
+.dashboard_loan button{
+    background-color: #DEDEDE;
+    border: none;
+    font-size: 13px;
+}
+
+.dashboard_description{
+    margin-top: 20px;
 }

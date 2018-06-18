@@ -5,13 +5,14 @@
 }
 
 .header .inner-header{
-    border: solid black 1px;
+    /* border: solid black 1px; */
     width: 800px;
     height: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 45px;
 }
 
 .inner-header button{

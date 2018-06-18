@@ -21,30 +21,36 @@ class Image extends Component {
         </div>
 
         <div className="center">
-          <div className="step">
-            <p>Step 3</p>
-          </div>
+          <div className="inner_center">
+            <div className="step">
+              <p>Step 3</p>
+            </div>
 
-          <div className="progress">
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-          </div>
+            <div className="progress">
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+              <div>*</div>
+            </div>
 
-          <div className="inputs">
-            Image
-            <input type="text" onChange={e => {this.props.handleImage(e.target.value)}} />
-          </div>
+            <div className="preview">
+              <p>Preview</p>
+            </div>
 
-          <div className="bottom_buttons">
-            <Link to="/address">
-              <button className="previous_step">Previous Step</button>
-            </Link>
-            <Link to="/loan">
-              <button className="next_step">Next Step</button>
-            </Link>
+            <div className="inputs">
+              Image URL
+              <input className="image_input input_font" type="text" onChange={e => {this.props.handleImage(e.target.value)}} />
+            </div>
+
+            <div className="bottom_buttons">
+              <Link to="/address">
+                <button className="previous_step">Previous Step</button>
+              </Link>
+              <Link to="/loan">
+                <button className="next_step">Next Step</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
