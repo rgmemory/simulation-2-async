@@ -8,10 +8,14 @@ export default class Dashboard extends Component {
     super();
 
     this.state = {
-      properties: []
+      properties: [],
+      filterInput: ''
     };
 
     this.delete = this.delete.bind(this);
+    this.filterInput = this.filterInput.bind(this);
+    this.submitFilter = this.submitFilter.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   componentDidMount() {
@@ -28,12 +32,62 @@ export default class Dashboard extends Component {
   }
 
   delete(value){
-    // console.log('delete', value)
     axios.delete('/api/delete/' + value).then(res => {
-      // console.log('front end delete works')
-      this.props.history.push('/dashboard')
+      axios.get('api/getproperties').then(res => 
+        this.setState({
+          properties: res.data
+        })
+      )
+      // this.props.history.push('/dashboard')//////why does this lag sometimes
     })
   }
+
+  filterInput(value){
+    // console.log(value)
+    this.setState({
+      filterInput: value
+    })
+  }
+
+  submitFilter(){
+    // console.log('filter clicked')
+    axios.get(`/api/getproperties?filter=${this.state.filterInput}`).then(res =>
+      // console.log('front end filte rwrorks'),
+      this.setState({
+        properties: res.data
+      })
+    )
+  }
+
+  reset(){
+
+    axios
+      .get("/api/getproperties")
+      .then(res => {
+        this.setState({
+          properties: res.data
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+      this.setState({
+        filterInput: 0
+      })
+    // console.log('reset clicked')
+    // this.setState({
+    //   filterInput: 0
+    // })
+    // axios.get(`/api/getproperties?filter=${this.state.filterInput}`).then(res =>
+    //   // console.log('front end filte rwrorks'),
+    //   this.setState({
+    //     properties: res.data
+    //   })
+    // )
+  }
+
+
 
   render() {
     var formattedProperties = this.state.properties.map((current, index) => {
@@ -65,11 +119,11 @@ export default class Dashboard extends Component {
                   
                   <div className="dashboard_recommended_rent">
 
-                    Recommended Rent: 
+                    Recommended Rent: {current.mortgage * 1.25}
                   </div>
 
                   <div className="dashboard_desired_rent">
-                    Desired Rent:
+                    Desired Rent: {current.rent}
                   </div>
 
 
@@ -80,11 +134,6 @@ export default class Dashboard extends Component {
                   <div className="dashboard_city">
                     City: {current.city}
                   </div>
-
-                  
-                
-                  ID: {current.user_id}
-                  PROPID: {current.property_id}
             </div>
 
         </div>
@@ -95,16 +144,15 @@ export default class Dashboard extends Component {
       <div className="dashboard">
         <div className="new_property">
           <Link to="/name">
-            {/* {" "} */}
             <button className="dashboard_add_new">Add new property</button>{" "}
           </Link>
         </div>
 
         <div className="dashboard_filter">
           <p>List properties with 'desired rent' greater than: $</p>
-          <input className="dashboard_input" />
-          <button className="filter_button">Filter</button>
-          <button className="reset_button">Reset</button>
+          <input placeholder={this.state.filterInput} onChange={e => {this.filterInput(e.target.value)}}/>
+          <button className="filter_button" onClick={this.submitFilter}>Filter</button>
+          <button className="reset_button" onClick={this.reset}>Reset</button>
         </div>
 
         <div className="listings">

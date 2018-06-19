@@ -49,7 +49,7 @@ class Rent extends Component {
             </div>
 
             <div className="recommended_rent">
-              <p>Recommended Rent: $</p>
+              <p>Recommended Rent: ${this.props.mortgage * 1.25}</p>
             </div>
 
             <div className="inputs">

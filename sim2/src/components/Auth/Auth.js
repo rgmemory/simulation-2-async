@@ -17,6 +17,7 @@ export default class Auth extends Component{
         this.updateUsername = this.updateUsername.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.submitLogin = this.submitLogin.bind(this);
+        this.registerUser = this.registerUser.bind(this);
     }
 
     updateUsername(value){
@@ -37,7 +38,15 @@ export default class Auth extends Component{
                 this.props.history.push(`/dashboard`)
             }
         }).catch(e => {
-            console.log('nice try')
+            alert('The password you entered is incorrect')
+        })
+    }
+
+    registerUser(){
+        // console.log('register')
+        axios.post('/api/auth/register', {username: this.state.username, password: this.state.password}).then(res => {
+            console.log('front end register works')
+            this.props.history.push(`/dashboard`)
         })
     }
 
@@ -46,10 +55,7 @@ export default class Auth extends Component{
                     <div className="auth_inner_middle">
 
                         <div className="auth_logo">
-                        <img src={logo}/>
-                            {/* <div className="logo">
-                            LOGO
-                            </div> */}
+                            <img src={logo}/>
                         </div>
                         
                         <div className="auth_inputs">
@@ -65,7 +71,7 @@ export default class Auth extends Component{
 
                         <div className="auth_buttons">
                             <button className="login_button" onClick={this.submitLogin}>Login</button>
-                            <button className="register_button">Register</button>
+                            <button className="register_button" onClick={this.registerUser}>Register</button>
                         </div>
 
                     </div>

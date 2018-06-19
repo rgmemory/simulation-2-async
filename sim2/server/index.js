@@ -31,7 +31,6 @@ massive(process.env.CONNECTION_STRING).then(db => {
         //     next()
         // })
         
-        app.use
         
         app.use(session({
             secret: process.env.SESSION_SECRET,
@@ -43,6 +42,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
             }))
             
             app.post('/api/auth/login', controller.login)
+            app.post('/api/auth/register', controller.register)
             app.get('/api/getproperties', controller.getProperties)
 
             app.post('/api/properties', controller.postProperty)
