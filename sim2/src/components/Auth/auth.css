@@ -5,10 +5,6 @@
     margin: auto;
 }
 
-.auth .center{
-    background-color: white;
-}
-
 .auth_logo{
     height: 40%;
     display: flex;

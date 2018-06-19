@@ -41,9 +41,7 @@
     background-color: #3C5249;
     color: white;
     border-radius: 5px;
-
 }
-
 
 .listings{
     margin-top: 20px;
@@ -65,15 +63,12 @@
 }
 
 .dashboard_properties_left{
-    /* border: solid 1px black; */
-    width: 22%;
+    width: 29%;
     font-size: 15px;
-    background-color: #CCCCCC;
 }
 
 .dashboard_properties_center{
-    /* border: solid 1px black; */
-    width: 37%;
+    width: 30%;
     font-size: 15px;
 }
 
@@ -83,6 +78,11 @@
     font-size: 13px;
     padding-left: 5px;
     font-size: 15px;
+}
+
+.dashboard_properties_left img{
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .dashboard_loan{

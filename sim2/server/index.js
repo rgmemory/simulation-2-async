@@ -7,10 +7,7 @@ require('dotenv').config();
 //properties
 //houseruser
 
-
 //many references the one. properties references the user_id
-
-
 
 const app = express();
 ////top level middleware
@@ -31,7 +28,6 @@ massive(process.env.CONNECTION_STRING).then(db => {
         //     next()
         // })
         
-        
         app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
@@ -43,24 +39,17 @@ massive(process.env.CONNECTION_STRING).then(db => {
             
             app.post('/api/auth/login', controller.login)
             app.post('/api/auth/register', controller.register)
+            app.post('/api/auth/logout', controller.logout);
+            
             app.get('/api/getproperties', controller.getProperties)
 
             app.post('/api/properties', controller.postProperty)
 
             app.delete('/api/delete/:id', controller.delete)
-            
-            
-            // app.get('/getProperties', controller.getProperties)
-            
+                        
             app.listen(3005, () => {
                 console.log("working on 3005");
             })
-
-
-
-
-
-            
 
             //drop table if exists authors;
             //create table if not exists authors (

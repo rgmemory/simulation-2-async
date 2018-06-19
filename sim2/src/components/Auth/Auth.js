@@ -4,6 +4,9 @@ import axios from 'axios';
 import './auth.css'
 import logo from './logo.png';
 
+/////why does my css stop short
+//why does the logout button on the header not accept this.props.history.push
+
 
 export default class Auth extends Component{
     constructor(){
@@ -43,9 +46,7 @@ export default class Auth extends Component{
     }
 
     registerUser(){
-        // console.log('register')
         axios.post('/api/auth/register', {username: this.state.username, password: this.state.password}).then(res => {
-            console.log('front end register works')
             this.props.history.push(`/dashboard`)
         })
     }

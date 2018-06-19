@@ -15,8 +15,6 @@ class Address extends Component {
   }
 
   render() {
-
-    // console.log(this.props.name, this.props.description)
     return (
       <div className="address">
         <div className="top">
@@ -27,46 +25,68 @@ class Address extends Component {
           </Link>
         </div>
 
-        <div className="center">
-
-
-          <div className="inner_center">
+        <div className="inner_center">
           <div className="step">
             <p>Step 2</p>
           </div>
 
           <div className="progress">
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
-            <div>*</div>
+            <div className="completed" />
+
+            <div className="current">
+              <div className="inner_current" />
+            </div>
+            <div className="pending" />
+            <div className="pending" />
+            <div className="pending" />
           </div>
 
           <div className="inputs">
-
             <div className="address_input">
               <p>Address</p>
-              <input className="input_font" type="text" onChange={e => {this.props.handleAddress(e.target.value)}} />
+              <input
+                className="input_font"
+                type="text"
+                onChange={e => {
+                  this.props.handleAddress(e.target.value);
+                }}
+              />
             </div>
 
             <div className="second_row">
               <div className="city_input">
                 <p>City</p>
-                <input className="input_font" type="text" onChange={e => {this.props.handleCity(e.target.value)}} />
+                <input
+                  className="input_font"
+                  type="text"
+                  onChange={e => {
+                    this.props.handleCity(e.target.value);
+                  }}
+                />
               </div>
 
               <div className="state_input">
                 <p>State</p>
-                <input className="input_font" type="text_input" onChange={e => {this.props.handleState(e.target.value)}} />
+                <input
+                  className="input_font"
+                  type="text_input"
+                  onChange={e => {
+                    this.props.handleState(e.target.value);
+                  }}
+                />
               </div>
             </div>
 
             <div className="zip_input">
               <p>Zip</p>
-              <input className="input_font" type="text_input" onChange={e => {this.props.handleZip(e.target.value)}} />
+              <input
+                className="input_font"
+                type="text_input"
+                onChange={e => {
+                  this.props.handleZip(e.target.value);
+                }}
+              />
             </div>
-
           </div>
 
           <div className="bottom_buttons">
@@ -78,9 +98,6 @@ class Address extends Component {
             </Link>
           </div>
         </div>
-          </div>
-
-
       </div>
     );
   }

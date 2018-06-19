@@ -4,18 +4,13 @@
 }
 
 .address_input input{
-    /* border: black solid 1px; */
-    /* background-color: pink; */
-    
     width: 100%;
-    
 }
 
 .second_row{
     display: flex;
     justify-content: space-between;
-    padding-right: 100px;
-    /* border: #559673 1px solid; */
+    padding-right: 50px;
 }
 
 .second_row input{

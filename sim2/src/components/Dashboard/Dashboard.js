@@ -38,21 +38,17 @@ export default class Dashboard extends Component {
           properties: res.data
         })
       )
-      // this.props.history.push('/dashboard')//////why does this lag sometimes
     })
   }
 
   filterInput(value){
-    // console.log(value)
     this.setState({
       filterInput: value
     })
   }
 
   submitFilter(){
-    // console.log('filter clicked')
     axios.get(`/api/getproperties?filter=${this.state.filterInput}`).then(res =>
-      // console.log('front end filte rwrorks'),
       this.setState({
         properties: res.data
       })
@@ -75,16 +71,6 @@ export default class Dashboard extends Component {
       this.setState({
         filterInput: 0
       })
-    // console.log('reset clicked')
-    // this.setState({
-    //   filterInput: 0
-    // })
-    // axios.get(`/api/getproperties?filter=${this.state.filterInput}`).then(res =>
-    //   // console.log('front end filte rwrorks'),
-    //   this.setState({
-    //     properties: res.data
-    //   })
-    // )
   }
 
 
@@ -95,7 +81,7 @@ export default class Dashboard extends Component {
         <div className="dashboard_properties" key={current + index}>
 
             <div className="dashboard_properties_left">
-              {current.image}
+              <img src={'https://www.theeastendcafe.com/wp-content/uploads/2017/03/Beach-House-Designs-Queensland.jpg'} />
             </div>
 
             <div className="dashboard_properties_center">
@@ -109,21 +95,21 @@ export default class Dashboard extends Component {
             <div className="dashboard_properties_right">
 
                   <div className="dashboard_loan">
-                    Loan: {current.loan}
+                    Loan: ${current.loan}
                     <button onClick={() => {this.delete(current.property_id)}}>X</button>
                   </div>
 
                   <div className="dashboard_mortgage">
-                    Monthly Mortgage: {current.mortgage}
+                    Monthly Mortgage: ${current.mortgage}
                   </div>
                   
                   <div className="dashboard_recommended_rent">
 
-                    Recommended Rent: {current.mortgage * 1.25}
+                    Recommended Rent: ${current.mortgage * 1.25}
                   </div>
 
                   <div className="dashboard_desired_rent">
-                    Desired Rent: {current.rent}
+                    Desired Rent: ${current.rent}
                   </div>
 
 

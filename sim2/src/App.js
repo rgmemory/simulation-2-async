@@ -17,7 +17,7 @@ class App extends Component {
           }          
             
           <div className="background">
-            <div className="center">
+            <div className={`${this.props.location.pathname === '/' ? 'auth_center' : 'center'}`}>
               {routes}
             </div>
           </div>

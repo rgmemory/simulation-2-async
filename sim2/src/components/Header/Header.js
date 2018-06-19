@@ -1,21 +1,39 @@
 import React, { Component } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default class Header extends Component {
   constructor() {
     super();
+
+    this.logout = this.logout.bind(this);
+  }
+
+  logout(){
+    console.log('logout')
+    axios.post('/api/auth/logout').then(res => {
+      console.log('loggedout', this.props)
+      ///////this.props.history.push(`/`);//////////// why doesn't this work
+    })
   }
 
   render() {
     return (
       <div className="header">
         <div className="inner-header">
-          <Link to="/dashboard">
-            <button>Houser Dashboard</button>
-          </Link>
+          
+          <div className="header_links">
+            <Link to="/">
+              <button className="header_houser">Houser</button>
+            </Link>
+            <Link to="/dashboard">
+              <button className="header_dashboard">Dashboard</button>
+            </Link>
+          </div>
+
           <Link to="/">
-            <button>Login</button>
+            <button onClick={this.logout}>Logout</button>
           </Link>
         </div>
       </div>

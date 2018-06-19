@@ -4,16 +4,20 @@
  
  .background{
    background-color: #B0D4C0;
-   /* height: 100%; */
-   
  }
  
  .center{
    width: 695px;
    margin: auto;
    height: 100vh;
-   /* border: solid black 1px; */
    background-color: #E2F2EB;
+ }
+
+ .auth_center{
+  width: 695px;
+  margin: auto;
+  height: 100vh;
+  background-color: white;
  }
 
  .inner_center{
@@ -32,7 +36,6 @@
 }
 
 .top{
-  /* border: solid black 1px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +45,6 @@
 }
 
 .step{
-  /* border: solid black 1px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,10 +52,13 @@
 }
 
 .progress{
-  /* border: solid black 1px; */
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  /* border: #559673 1px solid; */
+}
+.progress img{
+  border: #559673 1px solid;
 }
 
 input{
@@ -61,7 +66,6 @@ input{
 }
 
 .bottom_buttons{
-  /* border: solid 1px black; */
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
@@ -83,11 +87,40 @@ input{
  border-radius: 7px;
 }
 
-
 .input_font{
   font-size: 18px;
 }
 
+.current{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #539773;
+  position: relative;
+}
+
+.inner_current{
+  height: 30px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #BBD8C8;
+  position: absolute;
+}
+
+.pending{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #BBD8C8;
+  
+}
+
+.completed{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #539773;
+}
 
 
 
