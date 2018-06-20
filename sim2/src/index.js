@@ -10,6 +10,11 @@ import {HashRouter} from 'react-router-dom'
 
 ReactDOM.render(
 
+
+///provider lets react know that redux exists
+///store is the filing cabinet and state is what is filed away reducer is the secretary who 
+//sorts everything
+//actions are the mail carriers 
 <Provider store={store}>
     <HashRouter>
         <App />

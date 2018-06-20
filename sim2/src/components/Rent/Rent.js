@@ -12,7 +12,7 @@ class Rent extends Component {
   }
 
   complete() {
-    console.log("complete");
+    console.log("complete clicked");
     let {
       name,
       description,
@@ -39,7 +39,7 @@ class Rent extends Component {
         rent
       })
       .then(res => {
-        console.log("complete works");
+        console.log("complete works on the front end", res);
         this.props.history.push("/dashboard");
       });
   }

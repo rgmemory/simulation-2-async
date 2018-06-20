@@ -46,6 +46,7 @@ export default class Auth extends Component{
     }
 
     registerUser(){
+        // console.log('register clicked')
         axios.post('/api/auth/register', {username: this.state.username, password: this.state.password}).then(res => {
             this.props.history.push(`/dashboard`)
         })

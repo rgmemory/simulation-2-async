@@ -58,7 +58,10 @@ export default function reducer(state = initial_state, action){
 
 //actions
 
+
+//action builder is the function itself this is the mailman
 export function handleName(value){
+    //this is the action and that is analgous to the shipping package
     return{
         type: NAME,
         payload: value

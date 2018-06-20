@@ -22,6 +22,8 @@ export default class Dashboard extends Component {
     axios
       .get("/api/getproperties")
       .then(res => {
+
+        console.log('compoennt did moutn on the front ened', res.data)
         this.setState({
           properties: res.data
         });
@@ -32,6 +34,7 @@ export default class Dashboard extends Component {
   }
 
   delete(value){
+    console.log('delete clicked')
     axios.delete('/api/delete/' + value).then(res => {
       axios.get('api/getproperties').then(res => 
         this.setState({
@@ -81,7 +84,8 @@ export default class Dashboard extends Component {
         <div className="dashboard_properties" key={current + index}>
 
             <div className="dashboard_properties_left">
-              <img src={'https://www.theeastendcafe.com/wp-content/uploads/2017/03/Beach-House-Designs-Queensland.jpg'} />
+              {/* <img src={'https://www.theeastendcafe.com/wp-content/uploads/2017/03/Beach-House-Designs-Queensland.jpg'} /> */}
+              {current.image}
             </div>
 
             <div className="dashboard_properties_center">
@@ -136,7 +140,7 @@ export default class Dashboard extends Component {
 
         <div className="dashboard_filter">
           <p>List properties with 'desired rent' greater than: $</p>
-          <input placeholder={this.state.filterInput} onChange={e => {this.filterInput(e.target.value)}}/>
+          <input value={this.state.filterInput} onChange={e => {this.filterInput(e.target.value)}}/>
           <button className="filter_button" onClick={this.submitFilter}>Filter</button>
           <button className="reset_button" onClick={this.reset}>Reset</button>
         </div>
