@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
 
     this.state = {
       properties: [],
-      filterInput: ''
+      filterInput: ""
     };
 
     this.delete = this.delete.bind(this);
@@ -22,8 +22,7 @@ export default class Dashboard extends Component {
     axios
       .get("/api/getproperties")
       .then(res => {
-
-        console.log('compoennt did moutn on the front ened', res.data)
+        console.log("compoennt did moutn on the front ened", res.data);
         this.setState({
           properties: res.data
         });
@@ -33,33 +32,32 @@ export default class Dashboard extends Component {
       });
   }
 
-  delete(value){
-    console.log('delete clicked')
-    axios.delete('/api/delete/' + value).then(res => {
-      axios.get('api/getproperties').then(res => 
+  delete(value) {
+    console.log("delete clicked");
+    axios.delete("/api/delete/" + value).then(res => {
+      axios.get("api/getproperties").then(res =>
         this.setState({
           properties: res.data
         })
-      )
-    })
+      );
+    });
   }
 
-  filterInput(value){
+  filterInput(value) {
     this.setState({
       filterInput: value
-    })
+    });
   }
 
-  submitFilter(){
+  submitFilter() {
     axios.get(`/api/getproperties?filter=${this.state.filterInput}`).then(res =>
       this.setState({
         properties: res.data
       })
-    )
+    );
   }
 
-  reset(){
-
+  reset() {
     axios
       .get("/api/getproperties")
       .then(res => {
@@ -71,61 +69,80 @@ export default class Dashboard extends Component {
         console.log(e);
       });
 
-      this.setState({
-        filterInput: 0
-      })
+    this.setState({
+      filterInput: 0
+    });
   }
-
-
 
   render() {
     var formattedProperties = this.state.properties.map((current, index) => {
+      console.log(current.img);
       return (
         <div className="dashboard_properties" key={current + index}>
+          <div className="right-top">
+            <div className="right-top-inner">
+              <button
+                className="x-button"
+                onClick={() => {
+                  this.delete(current.property_id);
+                }}
+              >
+                X
+              </button>
+            </div>
+          </div>
 
+          <div className="right-bottom">
             <div className="dashboard_properties_left">
-              {/* <img src={'https://www.theeastendcafe.com/wp-content/uploads/2017/03/Beach-House-Designs-Queensland.jpg'} /> */}
-              {current.image}
+              <img src={current.img} alt="" />
             </div>
 
             <div className="dashboard_properties_center">
-              Name {current.name}
-              <div className="dashboard_description">
-                {current.description}
+              <div className="left-column">
+                <div className="dashboard_description">
+                
+                  <div className="item-title">Description:</div>
+                  <div className="item-info">{current.description}</div>
+                  
+                </div>
+
+                <div className="dashboard_description">
+                  <div className="item-title">Address:</div>
+                  <div className="item-info">{current.address}</div> 
+                </div>
+
+                <div className="dashboard_description">
+                  <div className="item-title">City:</div> 
+                  <div className="item-info">{current.city}</div>
+                </div>
               </div>
 
-            </div>
-
-            <div className="dashboard_properties_right">
-
-                  <div className="dashboard_loan">
-                    Loan: ${current.loan}
-                    <button onClick={() => {this.delete(current.property_id)}}>X</button>
-                  </div>
-
-                  <div className="dashboard_mortgage">
-                    Monthly Mortgage: ${current.mortgage}
-                  </div>
+              <div className="right-column">
+                <div className="dashboard_description">
+                  <div className="item-title">Loan Amount: </div>
+                  <div className="item-info">${current.loan}</div>
                   
-                  <div className="dashboard_recommended_rent">
+                </div>
 
-                    Recommended Rent: ${current.mortgage * 1.25}
-                  </div>
+                <div className="dashboard_description">
+                  <div className="item-title">Monthly Mortgage: </div>
+                  <div className="item-info">${current.mortgage}</div> 
+                </div>
 
-                  <div className="dashboard_desired_rent">
-                    Desired Rent: ${current.rent}
-                  </div>
+                <div className="dashboard_description">
+                  <div className="item-title">Recommended Rent: </div> 
+                  <div className="item-info">${current.mortgage * 1.25}</div>
+                  
+                </div>
 
-
-                  <div className="dashboard_address">
-                    Address: {current.address}
-                  </div>
-
-                  <div className="dashboard_city">
-                    City: {current.city}
-                  </div>
+                <div className="dashboard_description">
+                  <div className="item-title">Desired Rent: </div>
+                  <div className="item-info">${current.rent}</div>
+                  
+                </div>
+              </div>
             </div>
-
+          </div>
         </div>
       );
     });
@@ -140,15 +157,26 @@ export default class Dashboard extends Component {
 
         <div className="dashboard_filter">
           <p>List properties with 'desired rent' greater than: $</p>
-          <input value={this.state.filterInput} onChange={e => {this.filterInput(e.target.value)}}/>
-          <button className="filter_button" onClick={this.submitFilter}>Filter</button>
-          <button className="reset_button" onClick={this.reset}>Reset</button>
+          <input
+            value={this.state.filterInput}
+            onChange={e => {
+              this.filterInput(e.target.value);
+            }}
+          />
+          <button className="filter_button" onClick={this.submitFilter}>
+            Filter
+          </button>
+          <button className="reset_button" onClick={this.reset}>
+            Reset
+          </button>
         </div>
 
         <div className="listings">
-          <div><b>Home Listings</b></div>
+          {/* <div>
+            <b>Home Listings</b>
+          </div> */}
 
-          <div> {formattedProperties}</div>
+          <div className="properties-display"> {formattedProperties}</div>
         </div>
       </div>
     );

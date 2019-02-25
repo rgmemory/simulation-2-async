@@ -1,6 +1,7 @@
 module.exports = {
     login: function(req, res){
         req.app.get('db').get_users().then(users => {
+            
             const foundUser = users.find(current => {
                 return (current.username == req.body.username && current.password == req.body.password);
             })

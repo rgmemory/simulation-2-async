@@ -76,6 +76,11 @@ export default class Auth extends Component{
                             <button className="register_button" onClick={this.registerUser}>Register</button>
                         </div>
 
+                        {/* <div className="login-tip-one">To view properties:</div> */}
+                        <div className="login-tip-two">Username: a</div>
+                        <div className="login-tip-three">Password: b</div>
+                        {/* <div className="login-tip-four">Or feel free to register an account</div> */}
+
                     </div>
         )
     }
