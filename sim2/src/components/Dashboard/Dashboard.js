@@ -100,19 +100,17 @@ export default class Dashboard extends Component {
             <div className="dashboard_properties_center">
               <div className="left-column">
                 <div className="dashboard_description">
-                
                   <div className="item-title">Description:</div>
                   <div className="item-info">{current.description}</div>
-                  
                 </div>
 
                 <div className="dashboard_description">
                   <div className="item-title">Address:</div>
-                  <div className="item-info">{current.address}</div> 
+                  <div className="item-info">{current.address}</div>
                 </div>
 
                 <div className="dashboard_description">
-                  <div className="item-title">City:</div> 
+                  <div className="item-title">City:</div>
                   <div className="item-info">{current.city}</div>
                 </div>
               </div>
@@ -121,24 +119,21 @@ export default class Dashboard extends Component {
                 <div className="dashboard_description">
                   <div className="item-title">Loan Amount: </div>
                   <div className="item-info">${current.loan}</div>
-                  
                 </div>
 
                 <div className="dashboard_description">
                   <div className="item-title">Monthly Mortgage: </div>
-                  <div className="item-info">${current.mortgage}</div> 
+                  <div className="item-info">${current.mortgage}</div>
                 </div>
 
                 <div className="dashboard_description">
-                  <div className="item-title">Recommended Rent: </div> 
+                  <div className="item-title">Recommended Rent: </div>
                   <div className="item-info">${current.mortgage * 1.25}</div>
-                  
                 </div>
 
                 <div className="dashboard_description">
                   <div className="item-title">Desired Rent: </div>
                   <div className="item-info">${current.rent}</div>
-                  
                 </div>
               </div>
             </div>
@@ -172,10 +167,6 @@ export default class Dashboard extends Component {
         </div>
 
         <div className="listings">
-          {/* <div>
-            <b>Home Listings</b>
-          </div> */}
-
           <div className="properties-display"> {formattedProperties}</div>
         </div>
       </div>

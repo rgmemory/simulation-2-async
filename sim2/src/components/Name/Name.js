@@ -36,14 +36,6 @@ export class Name extends Component {
           </div>
 
           <div className="inputs">
-            {/* <p>Property Name</p>
-            <div className="name_input ">
-              <input
-                className="input_font"
-                type="text"
-                onChange={e => this.props.handleName(e.target.value)}
-              />
-            </div> */}
             <p>Property Description</p>
             <input
               className="description_input input_font"

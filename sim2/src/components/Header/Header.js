@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 export default class Header extends Component {
   constructor() {
@@ -10,19 +10,14 @@ export default class Header extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  logout(){
-    console.log('logout')
-    axios.post('/api/auth/logout').then(res => {
-      console.log('loggedout', this.props)
-      ///////this.props.history.push(`/`);//////////// why doesn't this work
-    })
+  logout() {
+    axios.post("/api/auth/logout").then(res => {});
   }
 
   render() {
     return (
       <div className="header">
         <div className="inner-header">
-          
           <div className="header_links">
             <Link to="/">
               <button className="header_houser">Houser</button>
